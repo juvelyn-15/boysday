@@ -15,10 +15,18 @@ name = st.text_input("Nhập tên của bạn: ")
 col1, col2, col3 = st.columns([1, 2, 1])  # center = col2
 with col1:
     if st.button('THAM GIA'):
-        save_join(name)
+        if name.strip() != "":
+            save_join(name)
+            st.balloons()  # 🎈 Show balloons!
+        else:
+            st.warning("Vui lòng nhập tên trước khi chọn.")
 with col2:
     if st.button("HẸN LẦN SAU NHÉ!"):
-        save_not_join(name)
+        if name.strip() != "":
+            save_not_join(name)
+            st.toast("Hẹn gặp bạn lần sau nhé!")  # optional friendly message
+        else:
+            st.warning("Vui lòng nhập tên trước khi chọn.")
 
 
 
